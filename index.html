@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Wars Rehberi — Hiç İzlemeyenler İçin</title>
+  <meta name="description" content="Star Wars'u hiç izlemeyenler için Türkçe, sade bir başlangıç rehberi: Güç, Jedi ve Sith, karakterler, gezegenler ve izleme sırası.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <nav class="nav">
+    <a href="#" class="logo">STAR WARS <span>rehberi</span></a>
+    <button class="menu-btn" aria-label="Menüyü aç" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="#nedir">Nedir?</a></li>
+      <li><a href="#guc">Güç</a></li>
+      <li><a href="#taraflar">Taraflar</a></li>
+      <li><a href="#karakterler">Karakterler</a></li>
+      <li><a href="#gezegenler">Gezegenler</a></li>
+      <li><a href="#zaman">Zaman Çizelgesi</a></li>
+      <li><a href="#sozluk">Sözlük</a></li>
+      <li><a href="#test">Test</a></li>
+    </ul>
+  </nav>
+
+  <!-- AÇILIŞ: kayan yazı -->
+  <header class="hero">
+    <p class="intro-line">Uzun zaman önce, çok çok uzak bir galakside....</p>
+    <div class="crawl-wrap" aria-hidden="true">
+      <div class="crawl">
+        <p class="crawl-ep">BÖLÜM 0</p>
+        <h2 class="crawl-title">YENİ BİR İZLEYİCİ</h2>
+        <p>Galaksi, kırk yılı aşkın süredir milyonlarca insanı büyüleyen bir masalın sahnesidir. Ama sen bu masalı hiç izlemedin.</p>
+        <p>Işın kılıçları, Jedi şövalyeleri, nefes alışı korkutan bir kötü adam ve “Güç” denen gizemli bir enerji hakkında duyduğun her şey kafanda karmakarışık.</p>
+        <p>Endişelenme genç Padawan. Bu rehber, tek bir film bile izlemeden galaksinin sırlarını sana anlatmak için hazırlandı....</p>
+      </div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">STAR WARS</h1>
+      <p class="hero-sub">Hiç izlemeyenler için 5 dakikada <strong>Yıldız Savaşları</strong></p>
+      <a href="#nedir" class="btn">Yolculuğa Başla</a>
+      <button class="btn btn-ghost" id="replay">Yazıyı Tekrar Oynat</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. NEDİR -->
+    <section id="nedir" class="section">
+      <h2 class="section-title"><span>01</span> Star Wars nedir?</h2>
+      <div class="grid-2">
+        <div>
+          <p class="lead">Star Wars (Türkçesi <em>Yıldız Savaşları</em>), 1977'de <strong>George Lucas</strong>'ın yarattığı bir bilim kurgu / fantastik masaldır.</p>
+          <p>Uzay gemileri ve robotlar olduğu için bilim kurgu gibi görünür, ama özünde klasik bir <strong>iyi ile kötünün savaşı</strong> hikâyesidir: şövalyeler, prensesler, büyücüler, yozlaşmış imparatorlar ve sıradan bir köylü çocuğun kahramana dönüşmesi.</p>
+          <p>Hikâye Dünya'da geçmez. Açılış cümlesi her şeyi söyler: <em>“Uzun zaman önce, çok çok uzak bir galakside...”</em> Yani bu bir masal; geleceği değil, hayali bir geçmişi anlatır.</p>
+        </div>
+        <div class="fact-cards">
+          <div class="fact"><b>1977</b><span>İlk film vizyona girdi</span></div>
+          <div class="fact"><b>9</b><span>Ana “Skywalker Destanı” filmi</span></div>
+          <div class="fact"><b>3</b><span>Üçleme (her biri 3 film)</span></div>
+          <div class="fact"><b>1</b><span>Aile: Skywalker'lar</span></div>
+        </div>
+      </div>
+      <div class="callout">
+        <b>Tek cümlede özet:</b> Star Wars, Skywalker ailesinin üç kuşak boyunca galaksiyi karanlıktan kurtarma (ve bazen karanlığa düşme) hikâyesidir.
+      </div>
+    </section>
+
+    <!-- 2. GÜÇ -->
+    <section id="guc" class="section">
+      <h2 class="section-title"><span>02</span> Güç (The Force)</h2>
+      <p class="lead">Star Wars'u anlamanın anahtarı “Güç”tür. Tüm canlıların yarattığı, galaksiyi bir arada tutan görünmez bir enerji alanıdır.</p>
+      <p>Bazı insanlar bu enerjiyi hissedip kullanabilir: nesneleri dokunmadan hareket ettirmek, geleceği sezmek, insanların zihnini etkilemek gibi. Gücün iki yüzü vardır:</p>
+
+      <div class="force-toggle">
+        <button class="side-btn light active" data-side="light">Aydınlık Taraf</button>
+        <button class="side-btn dark" data-side="dark">Karanlık Taraf</button>
+      </div>
+
+      <div class="force-panel" id="force-panel">
+        <div class="saber-demo">
+          <div class="hilt"></div>
+          <div class="blade" id="blade"></div>
+        </div>
+        <div class="force-text" id="force-text"></div>
+      </div>
+
+      <p class="hint">İpucu: Kılıcın kabzasına tıklayarak ışın kılıcını aç/kapat.</p>
+    </section>
+
+    <!-- 3. TARAFLAR -->
+    <section id="taraflar" class="section">
+      <h2 class="section-title"><span>03</span> Kim kimdir? İyiler ve kötüler</h2>
+      <p class="lead">Her dönemde isimler değişir ama düzen aynıdır: özgürlüğü savunan küçük bir grup, galaksiyi korku ile yöneten dev bir güce karşı savaşır.</p>
+      <div class="sides">
+        <div class="side-card good">
+          <h3>İyiler</h3>
+          <ul>
+            <li><b>Jedi Tarikatı</b> — Gücün aydınlık tarafını kullanan barış koruyucuları. Bir tür uzay şövalyesi / keşiş.</li>
+            <li><b>Cumhuriyet</b> — Galaksiyi yöneten demokratik yönetim (ilk filmlerde).</li>
+            <li><b>Asi İttifakı (Rebellion)</b> — İmparatorluğa karşı savaşan direniş hareketi.</li>
+            <li><b>Direniş (Resistance)</b> — Son üçlemedeki yeni asiler.</li>
+          </ul>
+        </div>
+        <div class="vs">VS</div>
+        <div class="side-card bad">
+          <h3>Kötüler</h3>
+          <ul>
+            <li><b>Sith</b> — Gücün karanlık tarafını kullananlar. Kural: her zaman yalnızca iki tane vardır, bir usta ve bir çırak.</li>
+            <li><b>Galaktik İmparatorluk</b> — Cumhuriyet'in yerine kurulan diktatörlük.</li>
+            <li><b>Stormtrooper'lar</b> — İmparatorluğun beyaz zırhlı askerleri.</li>
+            <li><b>Birinci Düzen (First Order)</b> — İmparatorluğun küllerinden doğan yeni tehdit.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. KARAKTERLER -->
+    <section id="karakterler" class="section">
+      <h2 class="section-title"><span>04</span> Bilmen gereken karakterler</h2>
+      <p class="lead">Kartlara tıkla; kartın arkasında karakterin hikâyedeki rolü yazıyor.</p>
+      <div class="chars" id="chars"></div>
+    </section>
+
+    <!-- 5. GEZEGENLER -->
+    <section id="gezegenler" class="section">
+      <h2 class="section-title"><span>05</span> Galaksinin önemli yerleri</h2>
+      <p class="lead">Her gezegen genelde tek bir iklimle tanımlanır: çöl gezegeni, buz gezegeni, orman gezegeni... Bir gezegene tıkla.</p>
+      <div class="planets" id="planets"></div>
+      <div class="planet-info" id="planet-info">
+        <h3>Bir gezegen seç</h3>
+        <p>Yukarıdaki gezegenlerden birine tıklayarak bilgi al.</p>
+      </div>
+    </section>
+
+    <!-- 6. ZAMAN ÇİZELGESİ -->
+    <section id="zaman" class="section">
+      <h2 class="section-title"><span>06</span> Hikâye sırası ve izleme rehberi</h2>
+      <p class="lead">En kafa karıştıran kısım: filmler hikâye sırasına göre çekilmedi! Önce ortadaki üçleme (IV-V-VI) çekildi, sonra geçmişi anlatan (I-II-III), en son da devamı (VII-VIII-IX).</p>
+
+      <div class="order-toggle">
+        <button class="ord-btn active" data-order="story">Hikâye sırası</button>
+        <button class="ord-btn" data-order="release">Çıkış sırası</button>
+      </div>
+
+      <ol class="timeline" id="timeline"></ol>
+
+      <div class="callout">
+        <b>Önerimiz:</b> İlk kez izleyecekseniz <b>çıkış sırasıyla</b>, yani <b>IV → V → VI</b> ile başlayın. Serinin en ünlü sürprizi Bölüm V'te ortaya çıkar ve o sırayla izlemek bu anı korur. Sevdiyseniz sonra I-II-III ve VII-VIII-IX'a geçin.
+      </div>
+    </section>
+
+    <!-- 7. SÖZLÜK -->
+    <section id="sozluk" class="section">
+      <h2 class="section-title"><span>07</span> Mini sözlük</h2>
+      <p class="lead">Hayranların konuşmalarında geçen terimler. Aramak için yazmaya başla.</p>
+      <input type="search" id="search" class="search" placeholder="Örn: Padawan, droid, Ölüm Yıldızı...">
+      <dl class="glossary" id="glossary"></dl>
+    </section>
+
+    <!-- 8. TEST -->
+    <section id="test" class="section">
+      <h2 class="section-title"><span>08</span> Jedi sınavı</h2>
+      <p class="lead">Rehberi okudun mu? Bakalım Padawan mı, Jedi Ustası mı olacaksın.</p>
+      <div class="quiz" id="quiz"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="quote">“Güç seninle olsun.”</p>
+    <p>Bu site bir ders projesi olarak hazırlanmış, resmî olmayan bir hayran rehberidir. Star Wars ve ilgili tüm isimler Lucasfilm Ltd.'ye aittir.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
